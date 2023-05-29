@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "vue/html-closing-bracket-newline": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "@typescript-eslint/brace-style": "off",
+    "vue/dot-location": "off"
+  },
+  "extends": [
+    "@antfu",
+    "@unocss"
+  ]
+}

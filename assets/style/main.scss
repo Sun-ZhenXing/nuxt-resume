@@ -1,0 +1,32 @@
+.van-theme-dark body {
+  color: #f5f5f5;
+  background-color: #131313;
+  transition: all 0.3s ease-in-out;
+}
+
+.page {
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.1s;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    filter: blur(.5rem);
+  }
+}
+
+.layout {
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.1s;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    filter: grayscale(1);
+  }
+}
