@@ -1,42 +1,36 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 Vant 模板项目
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+[Vant 4 官方文档](https://vant-contrib.gitee.io/vant/#/zh-CN).
 
-## Setup
+## 开始
 
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`
+使用 `corepack` 安装最新版本的 `pnpm`：
 
 ```bash
-npm run dev
+corepack enable
+corepack prepare pnpm@latest --activate
 ```
 
-## Production
-
-Build the application for production:
+安装依赖：
 
 ```bash
-npm run build
+pnpm i
 ```
 
-Locally preview production build:
+开发：
 
 ```bash
-npm run preview
+pnpm dev
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+构建：
+
+```bash
+pnpm build
+```
+
+静态生成：
+
+```bash
+pnpm generate
+```

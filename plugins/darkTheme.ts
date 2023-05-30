@@ -7,12 +7,14 @@ import { storeToRefs } from 'pinia'
 export default defineNuxtPlugin((_) => {
   // 响应式获取系统偏好
   const colorMode = useColorMode()
-  const appStore = useAppStore()
 
   // 响应式获取用户偏好设置
+  const appStore = useAppStore()
   const { isDarkTheme, isUsingSystemDarkMode } = storeToRefs(appStore)
+
   return {
     provide: {
+      // computed: 当前的颜色模式
       darkTheme: computed<ConfigProviderTheme>(() => {
         if (isUsingSystemDarkMode.value) {
           // 如果用户设置了跟随系统，则返回系统偏好
@@ -27,6 +29,7 @@ export default defineNuxtPlugin((_) => {
           return isDarkTheme.value ? 'dark' : 'light'
         }
       }),
+      // 切换颜色模式：浅色、深色、跟随系统
       toggleColorMode() {
         if (isUsingSystemDarkMode.value) {
           isDarkTheme.value = false
@@ -40,6 +43,13 @@ export default defineNuxtPlugin((_) => {
           }
         }
       },
+      // computed: 当前的颜色模式图标
+      darkThemeIconName: computed(() => {
+        if (isUsingSystemDarkMode.value)
+          return 'ic:baseline-brightness-medium'
+        else
+          return isDarkTheme.value ? 'ic:baseline-dark-mode' : 'ic:baseline-light-mode'
+      }),
     },
   }
 })
