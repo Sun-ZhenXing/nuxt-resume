@@ -1,12 +1,21 @@
+// dark theme
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #f5f5f5;
+    background-color: #131313;
+  }
+}
+
 .van-theme-dark body {
   color: #f5f5f5;
   background-color: #131313;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 body {
+  color: var(--van-gray-8);
   background-color: #fefefe;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .page {

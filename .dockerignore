@@ -1,3 +1,8 @@
+# git
+.git
+.gitignore
+
+# nuxt project
 node_modules
 *.log*
 .nuxt
@@ -7,7 +12,3 @@ node_modules
 .env
 dist
 .DS_Store
-
-docs/.vuepress/.cache/
-docs/.vuepress/.temp/
-docs/.vuepress/dist/

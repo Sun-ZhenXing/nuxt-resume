@@ -1,7 +1,9 @@
-import type { ConfigProviderThemeVars } from 'vant'
-import { defaultSettings } from '../settings'
+/**
+ * 是否打开系统设置
+ */
+export const useShowSetting = () => useState<boolean>('showSetting', () => false)
 
 /**
- * @description: 控制 Vant 的主题变量
+ * 当前系统的语言
  */
-export const useThemeVars = () => useState<ConfigProviderThemeVars>('themeVars', () => defaultSettings.themeVars)
+export { useCurrentLang } from 'vant'

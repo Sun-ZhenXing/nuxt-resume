@@ -50,7 +50,8 @@ const themeVars = useThemeVars()
         <span class="hidden xl:block">@xl:block</span>
         <span class="hidden 2xl:block">@2xl:block</span> -->
       </div>
-      <div class="col-span-3 box-border hidden bg-gray-100/[.1] p-4 md:block">右边</div>
+      <div class="col-span-3 box-border hidden bg-gray-100/[.1] p-4 md:block">Language: {{ useCurrentLang() }}</div>
     </div>
+    <app-settings />
   </van-config-provider>
 </template>
