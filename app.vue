@@ -1,22 +1,28 @@
 <script setup lang="ts">
 const showLeft = ref(false)
-const tabbarActive = ref(0)
+// const tabbarActive = ref(0)
 const { $darkTheme, $toggleColorMode, $darkThemeIconName } = useNuxtApp()
 const themeVars = useThemeVars()
+
+const testItems = [
+  { content: '6a6l6e6x@gmail.com', icon: 'logos:google-gmail', url: 'mailto:6a6l6e6x@gmail.com' },
+  { content: '@Sun-ZhenXing', icon: 'logos:github-icon', url: 'https://github.com/Sun-ZhenXing/' },
+  { content: '@AlexSun24409960', icon: 'logos:twitter', url: 'https://twitter.com/AlexSun24409960' },
+]
 </script>
 
 <template>
-  <van-config-provider :theme-vars="themeVars" :theme="$darkTheme" class="h-screen w-full">
-    <nuxt-loading-indicator color="blue" :throttle="0" />
+  <van-config-provider :theme-vars="themeVars" :theme="$darkTheme" class="A4 main-content w-full">
+    <nuxt-loading-indicator color="blue" :throttle="50" />
     <!-- 导航栏 -->
-    <van-nav-bar title="标题" class="sm:hidden">
+    <van-nav-bar title="标题" class="print:hidden sm:hidden">
       <template #left>
-        <div class="h-full w-8 flex items-center" @click="showLeft = !showLeft">
+        <div class="h-screen w-8 flex items-center" @click="showLeft = !showLeft">
           <Icon name="ic:baseline-notes" size="18" />
         </div>
       </template>
       <template #right>
-        <div class="h-full w-8 flex items-center" @click="$toggleColorMode">
+        <div class="h-screen w-8 flex items-center" @click="$toggleColorMode">
           <ClientOnly>
             <Icon :name="$darkThemeIconName" size="18" />
           </ClientOnly>
@@ -24,33 +30,26 @@ const themeVars = useThemeVars()
       </template>
     </van-nav-bar>
     <!-- 左侧弹出框 -->
-    <van-popup v-model:show="showLeft" closeable position="left" class="block h-full w-1/2 sm:w-1/4">
+    <van-popup v-model:show="showLeft" closeable position="left" class="block h-screen w-1/2 sm:w-1/4">
       <app-sidebar />
     </van-popup>
-    <!-- 底部导航栏 -->
-    <div class="block sm:hidden">
-      <van-tabbar v-model="tabbarActive">
-        <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-        <van-tabbar-item icon="search">标签</van-tabbar-item>
-        <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-        <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
-      </van-tabbar>
-    </div>
     <!-- 主体内容 -->
     <div
-      class="grid grid-cols-[200px,1fr,2rem] grid-cols-4 m-[0_auto] h-[calc(100%-var(--van-nav-bar-height))] max-w-[1320px] gap-2 md:grid-cols-13 sm:grid-cols-10 sm:h-full">
-      <div class="col-span-2 hidden sm:block">
+      class="grid grid-cols-[200px,1fr,2rem] grid-cols-4 m-[0_auto] h-[calc(100%-var(--van-nav-bar-height))] max-w-[1120px] gap-2 md:grid-cols-10 sm:grid-cols-10 sm:h-screen print:gap-0">
+      <div class="col-span-2 hidden sm:block print:hidden">
         <app-sidebar />
       </div>
-      <div class="col-span-8 box-border h-full bg-indigo-100/[.1] p-4">
-        <van-address-edit show-delete show-set-default show-search-result />
-        <!-- <span class="hidden sm:block">@sm:block</span>
-        <span class="hidden md:block">@md:block</span>
-        <span class="hidden lg:block">@lg:block</span>
-        <span class="hidden xl:block">@xl:block</span>
-        <span class="hidden 2xl:block">@2xl:block</span> -->
+      <div class="col-span-8 print:col-span-10">
+        <div class="sheet grid grid-cols-[200px,1fr,2rem] grid-cols-12">
+          <div class="col-span-4 bg-gray-100">
+            <resume-info-card name="孙振兴" :items="testItems" />
+            <resume-text-card title="简单文字卡片" content="内容" class="pl-4 pr-4" />
+            <resume-education-card title="教育背景模块" content="内容" class="pl-4 pr-4" />
+            <resume-award-card title="获奖信息模块" content="内容" class="pl-4 pr-4" />
+          </div>
+          <resume-markdown-card class="col-span-8" />
+        </div>
       </div>
-      <div class="col-span-3 box-border hidden bg-gray-100/[.1] p-4 md:block">Language: {{ useCurrentLang() }}</div>
     </div>
     <app-settings />
   </van-config-provider>

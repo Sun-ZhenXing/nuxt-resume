@@ -1,11 +1,4 @@
 // dark theme
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #f5f5f5;
-    background-color: #131313;
-  }
-}
-
 .van-theme-dark body {
   color: #f5f5f5;
   background-color: #131313;
@@ -18,6 +11,30 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+a {
+  color: var(--van-blue);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  &:visited {
+    color: var(--van-blue);
+  }
+}
+
+ul,
+ol {
+  padding-left: 1.5rem !important;
+}
+
+ul {
+  list-style: circle !important;
+}
+
+ol {
+  list-style: decimal !important;
+}
+
+// transition for page and layout
 .page {
 
   &-enter-active,

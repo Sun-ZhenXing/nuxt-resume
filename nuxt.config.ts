@@ -22,6 +22,9 @@ export default defineNuxtConfig({
 
     // utils
     '@nuxt/content',
+
+    // i18n
+    '@nuxtjs/i18n',
   ],
   extends: [
     'nuxt-seo-kit',
@@ -37,5 +40,6 @@ export default defineNuxtConfig({
   ],
   css: [
     '~/assets/style/main.scss',
+    '~/assets/style/paper.css',
   ],
 })
